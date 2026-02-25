@@ -1,11 +1,7 @@
-// import { PrismaClient } from "@prisma/client";
-
-// const prisma = new PrismaClient();
-
-// export default prisma;
-
 import { PrismaClient } from '@prisma/client'
+import { env } from 'process'
 
-const prisma = new PrismaClient({
-  datasourceUrl: process.env.DATABASE_URL, 
-})
+export const prisma = new PrismaClient({
+  adapter: null, // সরাসরি ডাটাবেস কানেকশনের জন্য
+  datasourceUrl: env.DATABASE_URL
+} as any)
